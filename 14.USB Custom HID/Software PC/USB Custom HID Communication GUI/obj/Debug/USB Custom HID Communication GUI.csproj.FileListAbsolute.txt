@@ -1,0 +1,10 @@
+C:\Users\XuanThiep\Dropbox\C# Project Dropbox\USB Custom HID Communication GUI\USB Custom HID Communication GUI\bin\Debug\USB Custom HID Communication GUI.exe
+C:\Users\XuanThiep\Dropbox\C# Project Dropbox\USB Custom HID Communication GUI\USB Custom HID Communication GUI\bin\Debug\USB Custom HID Communication GUI.pdb
+C:\Users\XuanThiep\Dropbox\C# Project Dropbox\USB Custom HID Communication GUI\USB Custom HID Communication GUI\obj\Debug\USB_Custom_HID_Communication_GUI.Form1.resources
+C:\Users\XuanThiep\Dropbox\C# Project Dropbox\USB Custom HID Communication GUI\USB Custom HID Communication GUI\obj\Debug\USB_Custom_HID_Communication_GUI.Properties.Resources.resources
+C:\Users\XuanThiep\Dropbox\C# Project Dropbox\USB Custom HID Communication GUI\USB Custom HID Communication GUI\obj\Debug\USB Custom HID Communication GUI.csproj.GenerateResource.Cache
+C:\Users\XuanThiep\Dropbox\C# Project Dropbox\USB Custom HID Communication GUI\USB Custom HID Communication GUI\obj\Debug\USB Custom HID Communication GUI.exe
+C:\Users\XuanThiep\Dropbox\C# Project Dropbox\USB Custom HID Communication GUI\USB Custom HID Communication GUI\obj\Debug\USB Custom HID Communication GUI.pdb
+C:\Users\XuanThiep\Dropbox\C# Project Dropbox\USB Custom HID Communication GUI\USB Custom HID Communication GUI\bin\Debug\LibUsbDotNet.dll
+C:\Users\XuanThiep\Dropbox\C# Project Dropbox\USB Custom HID Communication GUI\USB Custom HID Communication GUI\bin\Debug\LibUsbDotNet.xml
+C:\Users\XuanThiep\Dropbox\C# Project Dropbox\USB Custom HID Communication GUI\USB Custom HID Communication GUI\obj\Debug\USB Custom HID Communication GUI.csprojResolveAssemblyReference.cache

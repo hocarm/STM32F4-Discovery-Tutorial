@@ -1,0 +1,8 @@
+C:\Users\XuanThiep\Desktop\STM32F4 Discovery Tutorial HQ\Bai 13 AES\Test AES Application\Test AES Application\bin\Debug\Test AES Application.exe
+C:\Users\XuanThiep\Desktop\STM32F4 Discovery Tutorial HQ\Bai 13 AES\Test AES Application\Test AES Application\bin\Debug\Test AES Application.pdb
+C:\Users\XuanThiep\Desktop\STM32F4 Discovery Tutorial HQ\Bai 13 AES\Test AES Application\Test AES Application\obj\Debug\Test AES Application.csprojResolveAssemblyReference.cache
+C:\Users\XuanThiep\Desktop\STM32F4 Discovery Tutorial HQ\Bai 13 AES\Test AES Application\Test AES Application\obj\Debug\Test_AES_Application.Form1.resources
+C:\Users\XuanThiep\Desktop\STM32F4 Discovery Tutorial HQ\Bai 13 AES\Test AES Application\Test AES Application\obj\Debug\Test_AES_Application.Properties.Resources.resources
+C:\Users\XuanThiep\Desktop\STM32F4 Discovery Tutorial HQ\Bai 13 AES\Test AES Application\Test AES Application\obj\Debug\Test AES Application.csproj.GenerateResource.Cache
+C:\Users\XuanThiep\Desktop\STM32F4 Discovery Tutorial HQ\Bai 13 AES\Test AES Application\Test AES Application\obj\Debug\Test AES Application.exe
+C:\Users\XuanThiep\Desktop\STM32F4 Discovery Tutorial HQ\Bai 13 AES\Test AES Application\Test AES Application\obj\Debug\Test AES Application.pdb
