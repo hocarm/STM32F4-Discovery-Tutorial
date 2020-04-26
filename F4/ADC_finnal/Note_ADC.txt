@@ -1,0 +1,129 @@
+This video will demonstrate the different methods of using ADC and reading the value from the sensor
+
+1. Pollfor conversion method
+2. interrupt method
+3. using DMA
+
+Let's start with Pollforconversion method
+
+
+Enable: Continuous Conversion Mode |
+
+
+/* Private variables ---------------------------------------------------------*/
+uint32_t value;
+
+
+  /* USER CODE BEGIN 2 */
+	HAL_ADC_Start(&hadc1);
+while(1)
+
+  /* USER CODE END WHILE */
+	HAL_ADC_PollForConversion(&hadc1,1000); // set time waiting waiter
+	value=HAL_ADC_GetValue(&hadc1);
+
+A variable resister is connected to the A0 pin and I will increase the resistance
+
+
+
+
+Now let's check using interrupt method
+
+/* USER CODE END 0 */
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+	{
+		if(hadc->Instance==ADC1)
+			{
+				value=HAL_ADC_GetValue(&hadc1);
+			}
+	}
+
+  /* USER CODE BEGIN 2 */
+HAL_ADC_Start_IT(&hadc1);
+
+Now finally the DMA method
+here i will use 1 more channel to show that the values from the ADC get stored in the me and we can access it anytime in the program
+
+
+
+uint32_t value[2],adc_buffer[2],read_values[2];
+
+/* USER CODE BEGIN 0 */
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+	{
+		if(hadc->Instance==ADC1)
+			{
+				for(int i=0;i<2;i++)
+				{
+					value[i]=adc_buffer[i];
+				}
+			}
+	}
+  /* USER CODE BEGIN 2 */
+HAL_ADC_Start_DMA(&hadc1,adc_buffer,2);
+
+/* USER CODE BEGIN 3 */
+		if(!(HAL_GPIO_ReadPin(GPIOE,GPIO_PIN_0)))
+			{
+				for(int i=0;i<2;i++)
+				{
+					read_values[i]=value[i];
+				}
+			}
+			else
+			{
+				for(int i=0;i<2;i++)
+				{
+					read_values[i]=0;
+				}
+			}	
+
+
+
+Muilti channel
+Fist i will show using POLLFORCONVERSION method ...
+
+/* Private variables ---------------------------------------------------------*/
+uint32_t adc1,adc2,adc3,temperature;
+float vsense=3.3/1023;// for 10bit 
+
+/* USER CODE END WHILE */
+		HAL_ADC_Start(&hadc1);// start the ADC
+		HAL_ADC_PollForConversion(&hadc1,100);
+		adc1=HAL_ADC_GetValue(&hadc1);
+		
+		HAL_ADC_PollForConversion(&hadc1,100);
+		adc2=HAL_ADC_GetValue(&hadc1);
+		
+		HAL_ADC_PollForConversion(&hadc1,100);
+		adc3=HAL_ADC_GetValue(&hadc1);
+		temperature=((adc3*vsense - 0.76)/0.0025)+25;
+		HAL_ADC_Stop(&hadc1); // stop the adc
+		HAL_Delay(200); // 200ms delay before starting adc again
+
+
+as you can see the adc is readin values perfectly....
+enable DMA
+
+you can also do some  other operate in while loop
+
+
+uint32_t temp[3],buffer[3],temperature;
+float vsense=3.3/1023; // for 10bit resolution
+
+
+/* USER CODE END 0 */
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+	{
+		for(int i=0;i<3;i++)
+		{
+			temp[i]=buffer[i];
+		}
+	}
+
+
+ /* USER CODE END 2 */
+	HAL_ADC_Start_DMA(&hadc1,buffer,3);
+
+
+

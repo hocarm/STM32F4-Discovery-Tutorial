@@ -1,0 +1,118 @@
+TUT USART- TX-RX|| Interrupts
+
+Transmit 
+uint8_t data[]="HELLO WORLD\n";
+HAL_UART_Transmit(&huart2, data, sizeof(data), 100);
+HAL_Delay(500); //500ms daylay
+As you can see data is being transmitted continously....
+
+Let's say you want to receive data simultaneously, we have to use interrupt for that....
+
+
+2.Receive:
+
+receive 4 character while transmitting "HELLO WORLD"
+
+
+uint8_t rec_data[4];
+ __HAL_UART_ENABLE_IT(&huart2,UART_IT_RXNE); // this will enable receive interrupts
+file IT.c
+
+ 
+extern uint8_t rec_data[4];
+HAL_UART_Receive_IT(&huart2,rec_data,4);
+
+
+3. Now let's say we want to transmitting diferent words of different number of characters,
+In such case, we can not set a predetermined size of the receive buffer so we will use 'enter' key ascii 13 to send the data
+
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+		{
+			if(huart->Instance==USART2)
+				{
+					// if the data is not being received, clear the buffer
+					if(rx_index==0)
+						{
+							for(int i=0;i<20;i++)
+							{
+								rx_buffer[i]=0;
+								
+							}
+						}
+						// if the character received is other than 'enter' ascii13, save the data in buffer
+						if(rx_data!=13)
+							{
+								rx_buffer[rx_index++]=rx_data;
+							}
+						else
+							{
+								rx_index=0;
+								HAL_UART_Transmit(&huart2,rx_buffer,sizeof(rx_buffer),100);// transmit the data via uart
+							}								
+						HAL_UART_Receive_IT(&huart2,&rx_data,1);// receive data (one character only)	
+					
+				}
+					
+		}
+
+main
+
+
+HAL_UART_Receive_IT(&huart2,&rx_data,1);
+
+
+
+//-------------------------------------------------------------
+Cach khac
+
+
+char Rx_indx,Rx_data[2],Rx_Buffer[100],Transfer_cplt;
+
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+uint8_t i;
+if(huart->Instance==USART2) // current UART
+if(Rx_indx==0) // clear Rx_Buffer before receiving new data
+{
+for(i=0;i<100;i++)
+Rx_Buffer[i]=0;
+}
+if(Rx_data[0]!=13) // if received data different from ascii 13 (enter)
+{
+Rx_Buffer[Rx_indx++]=Rx_data[0];
+}
+else  // if received data=13  
+{
+Rx_indx=0;
+Transfer_cplt=1; // Transfer complete, data is ready to read
+}
+HAL_UART_Receive_IT(&huart1,Rx_data,1);// activate UART recive interrupt every time
+}
+
+}
+
+//---------------------------------------------
+main
+
+HAL_UART_Receive_IT(&huart1,Rx_data,1);// activate uart rx interuppt a very recceiving 1 byte
+
+while(1)
+{
+if(Transfer_cplt)
+{
+sprintf(buffer,"%s \r\n",Rx_Buffer);
+len=strlen(buffer);
+HAL_UART_Transmit(&huart1,buffer,len,1000);
+Transfer_cplt=0; /reset transfer_complete variable
+HAL_Delay(500);
+}
+
+}
+
+
+
+https://www.youtube.com/watch?v=VdHt_wJdezM
+
+

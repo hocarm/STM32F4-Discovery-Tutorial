@@ -1,0 +1,15 @@
+This video will demonstrate the different methods of using ADC and reading the value from the sensor
+
+
+Muilti channel ADC
+Fist i will show using POLLFORCONVERSION method ...
+
+
+Let's start with Pollforconversion method
+
+
+as you can see the adc is readin values perfectly....
+enable DMA
+
+you can also do some  other operate in while loop
+

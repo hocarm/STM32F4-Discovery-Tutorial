@@ -1,0 +1,3 @@
+TUT
+1. PWM timer 
+2. using button increase value and duty %
