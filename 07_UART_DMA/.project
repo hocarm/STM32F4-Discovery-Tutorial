@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>05_UART_POLL_TX</name>
+	<name>07_UART_DMA</name>
 	<comment></comment>
 	<projects>
 	</projects>
