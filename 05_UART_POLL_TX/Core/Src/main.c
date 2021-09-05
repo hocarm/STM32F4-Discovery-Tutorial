@@ -56,7 +56,7 @@ static void MX_USART1_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t tx_buff[]={0,1,2,3,4,5,6,7,8,9};
+uint8_t data[]={0,1,2,3,4,5,6,7,8,9};
 /* USER CODE END 0 */
 
 /**
@@ -195,10 +195,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-	__NOP();//check if we receive all data
-}
+
 /* USER CODE END 4 */
 
 /**
